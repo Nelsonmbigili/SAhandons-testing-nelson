@@ -184,6 +184,38 @@ class BankAccountTest {
 
     }
 
+    @Nested
+    @DisplayName("applyMonthlyInterest")
+    class ApplyMonthlyInterestTests {
+
+        @Test
+        @DisplayName("Testing applyMonthlyInterest negative rate")
+        void applyNegativeRatePath() {
+
+            IllegalArgumentException ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> account.applyMonthlyInterest(-20.0)
+            );
+
+            assertEquals("rate cannot be negative", ex.getMessage());
+        }
+
+
+        @Test
+        @DisplayName("Testing succefull applyMonthlyInterest ")
+        void applySuccefullRatePath() {
+
+            account.applyMonthlyInterest(20.0);
+
+            assertEquals(100.0 + 20.0/12.0, account.getBalance());
+        }
+
+
+
+
+    }
+
+
 
 
 
