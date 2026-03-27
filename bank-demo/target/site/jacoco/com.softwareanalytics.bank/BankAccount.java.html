@@ -28,8 +28,8 @@ public class BankAccount {
 <span class="fc bfc" id="L28" title="All 2 branches covered.">        if (frozen) {</span>
 <span class="fc" id="L29">            throw new IllegalStateException(&quot;account is frozen&quot;);</span>
         }
-<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (amount &lt;= 0) {</span>
-<span class="nc" id="L32">            throw new IllegalArgumentException(&quot;amount must be positive&quot;);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (amount &lt;= 0) {</span>
+<span class="fc" id="L32">            throw new IllegalArgumentException(&quot;amount must be positive&quot;);</span>
         }
 <span class="fc" id="L34">        balance += amount;</span>
 <span class="fc" id="L35">    }</span>
