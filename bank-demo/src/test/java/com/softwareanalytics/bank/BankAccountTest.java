@@ -99,4 +99,23 @@ class BankAccountTest {
             assertEquals("amount must be positive", ex.getMessage());
         }
     }
+
+    @Nested
+    @DisplayName("freeze")
+    class FreezeTests {
+
+        @Test
+        @DisplayName("deposit to a frozen account")
+        void freezeHappyPath() {
+            account.freeze();
+
+            IllegalStateException ex = assertThrows(
+                IllegalStateException.class,
+                () -> account.deposit(100.0)
+            );
+
+            assertEquals("account is frozen", ex.getMessage());
+        }
+    }
+
 }
