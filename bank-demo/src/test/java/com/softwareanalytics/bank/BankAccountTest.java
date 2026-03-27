@@ -271,7 +271,6 @@ class BankAccountTest {
             assertEquals("rate cannot be negative", ex.getMessage());
         }
 
-
         @Test
         @DisplayName("Testing succefull applyMonthlyInterest ")
         void applySuccefullRatePath() {
@@ -280,6 +279,18 @@ class BankAccountTest {
 
             assertEquals(100.0 + 20.0/12.0, account.getBalance());
         }
+
+        @Test
+        @DisplayName("Testing zero balance applyMonthlyInterest ")
+        void applyZeroBalanceRatePath() {
+
+            account.withdraw(100.0);
+            account.applyMonthlyInterest(20.0);
+
+            assertEquals(0.0, account.getBalance());
+        }
+
+
 
 
     }
