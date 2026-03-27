@@ -156,6 +156,19 @@ class BankAccountTest {
             );
             assertEquals("amount must be positive", ex.getMessage());
         }
+
+        @Test
+        @DisplayName("withdraw frozen Account")
+        void withdrawFromFrozen() {
+            account.freeze();
+            IllegalStateException ex = assertThrows(
+                    IllegalStateException.class,
+                    () -> account.withdraw(50.0)
+            );
+            assertEquals("account is frozen", ex.getMessage());
+        }
+
+
     }
 
     @Nested

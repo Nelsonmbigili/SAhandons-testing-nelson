@@ -35,8 +35,8 @@ public class BankAccount {
 <span class="fc" id="L35">    }</span>
 
     public void withdraw(double amount) {
-<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if (frozen) {</span>
-<span class="nc" id="L39">            throw new IllegalStateException(&quot;account is frozen&quot;);</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (frozen) {</span>
+<span class="fc" id="L39">            throw new IllegalStateException(&quot;account is frozen&quot;);</span>
         }
 <span class="fc bfc" id="L41" title="All 2 branches covered.">        if (amount &lt;= 0) {</span>
 <span class="fc" id="L42">            throw new IllegalArgumentException(&quot;amount must be positive&quot;);</span>
