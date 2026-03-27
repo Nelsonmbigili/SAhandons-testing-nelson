@@ -10,14 +10,14 @@ public class BankAccount {
     private boolean frozen;
 
 <span class="fc" id="L12">    public BankAccount(String owner, double initialBalance) {</span>
-<span class="pc bpc" id="L13" title="1 of 2 branches missed.">        if (owner == null) {</span>
-<span class="nc" id="L14">            throw new IllegalArgumentException(&quot;owner cannot be null&quot;);</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (owner == null) {</span>
+<span class="fc" id="L14">            throw new IllegalArgumentException(&quot;owner cannot be null&quot;);</span>
         }
-<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (owner.isBlank()) {</span>
-<span class="nc" id="L17">            throw new IllegalArgumentException(&quot;owner cannot be blank&quot;);</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if (owner.isBlank()) {</span>
+<span class="fc" id="L17">            throw new IllegalArgumentException(&quot;owner cannot be blank&quot;);</span>
         }
-<span class="pc bpc" id="L19" title="1 of 2 branches missed.">        if (initialBalance &lt; 0) {</span>
-<span class="nc" id="L20">            throw new IllegalArgumentException(&quot;initial balance cannot be negative&quot;);</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (initialBalance &lt; 0) {</span>
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;initial balance cannot be negative&quot;);</span>
         }
 <span class="fc" id="L22">        this.owner = owner;</span>
 <span class="fc" id="L23">        this.balance = initialBalance;</span>

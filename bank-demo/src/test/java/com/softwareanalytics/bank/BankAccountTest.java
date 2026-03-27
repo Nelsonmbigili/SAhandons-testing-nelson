@@ -34,6 +34,39 @@ class BankAccountTest {
             assertEquals(250.50, acc.getBalance());
             assertFalse(acc.isFrozen());
         }
+
+        @Test
+        @DisplayName("Invalid arguments: null owner throws exception")
+        void constructorWithNullOwner() {
+            IllegalArgumentException ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> new BankAccount(null, 250.50)
+            );
+
+            assertEquals("owner cannot be null", ex.getMessage());
+        }
+
+        @Test
+        @DisplayName("Invalid arguments: blank owner throws exception")
+        void constructorWithBlankOwner() {
+            IllegalArgumentException ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> new BankAccount("   ", 100.0)
+            );
+
+            assertEquals("owner cannot be blank", ex.getMessage());
+        }
+
+        @Test
+        @DisplayName("Invalid arguments: negative balance throws exception")
+        void constructorWithNegativeBalance() {
+            IllegalArgumentException ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> new BankAccount("Bob", -50.0)
+            );
+
+            assertEquals("initial balance cannot be negative", ex.getMessage());
+        }
     }
 
     @Nested
@@ -209,8 +242,6 @@ class BankAccountTest {
 
             assertEquals(100.0 + 20.0/12.0, account.getBalance());
         }
-
-
 
 
     }
