@@ -115,6 +115,7 @@ class BankAccountTest {
             );
 
             assertEquals("account is frozen", ex.getMessage());
+            assertTrue(account.isFrozen(), "Account should be frozen anymore");
         }
     }
 
