@@ -144,6 +144,53 @@ class BankAccountTest {
     }
 
 
+    @Nested
+    @DisplayName("transfer")
+    class TransferTests {
+
+        @Test
+        @DisplayName("Testing transfer to target")
+        void TransferNoTargetPath() {
+
+            IllegalArgumentException ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> account.transfer(null, 100)
+            );
+
+            assertEquals("target cannot be null", ex.getMessage());
+        }
+
+        @Test
+        @DisplayName("Testing transfer to self")
+        void TransferToSelfPath() {
+
+            IllegalArgumentException ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> account.transfer(account, 100)
+            );
+
+            assertEquals("cannot transfer to self", ex.getMessage());
+        }
+
+        @Test
+        @DisplayName("Testing successfull Transfer")
+        void TransferToOtherPath() {
+
+            BankAccount accountOther = new BankAccount("John", 100.0);
+            account.transfer(accountOther,100);
+            assertEquals(0.0, account.getBalance());
+            assertEquals(200.0, accountOther.getBalance());
+        }
+
+    }
+
+
+
+
+
+
+
+
 
 
 }

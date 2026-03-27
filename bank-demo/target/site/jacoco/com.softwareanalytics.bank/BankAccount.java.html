@@ -48,15 +48,15 @@ public class BankAccount {
 <span class="fc" id="L48">    }</span>
 
     public void transfer(BankAccount target, double amount) {
-<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (target == null) {</span>
-<span class="nc" id="L52">            throw new IllegalArgumentException(&quot;target cannot be null&quot;);</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (target == null) {</span>
+<span class="fc" id="L52">            throw new IllegalArgumentException(&quot;target cannot be null&quot;);</span>
         }
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (target == this) {</span>
-<span class="nc" id="L55">            throw new IllegalArgumentException(&quot;cannot transfer to self&quot;);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (target == this) {</span>
+<span class="fc" id="L55">            throw new IllegalArgumentException(&quot;cannot transfer to self&quot;);</span>
         }
-<span class="nc" id="L57">        withdraw(amount);</span>
-<span class="nc" id="L58">        target.deposit(amount);</span>
-<span class="nc" id="L59">    }</span>
+<span class="fc" id="L57">        withdraw(amount);</span>
+<span class="fc" id="L58">        target.deposit(amount);</span>
+<span class="fc" id="L59">    }</span>
 
     public void freeze() {
 <span class="fc" id="L62">        frozen = true;</span>
