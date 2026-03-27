@@ -118,4 +118,31 @@ class BankAccountTest {
         }
     }
 
+    @Nested
+    @DisplayName("unfreeze")
+    class UnFreezeTests {
+
+        @Test
+        @DisplayName("Testing unfreeze account")
+        void UnfreezeHappyPath() {
+
+            account.freeze();
+            IllegalStateException ex = assertThrows(
+                IllegalStateException.class,
+                () -> account.deposit(100.0)
+            );
+
+            assertEquals("account is frozen", ex.getMessage());
+
+
+            account.unfreeze();
+            account.deposit(100.0);
+            assertEquals(200.0, account.getBalance(), "Balance should update after unfreezing");
+            assertFalse(account.isFrozen(), "Account should not be frozen anymore");
+        }
+    }
+
+
+
+
 }
